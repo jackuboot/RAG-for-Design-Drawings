@@ -49,7 +49,7 @@ sudo apt-get install tesseract-ocr
 
 ```bash
 # 1. Place your PDF in the project directory
-cp /path/to/your/drawing.pdf ./drawing.pdf
+cp ./data/tech_arch_drawing.pdf ./drawing.pdf
 
 # 2. Update config.yaml with your PDF path
 # Edit config.yaml and set:
