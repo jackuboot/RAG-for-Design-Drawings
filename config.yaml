@@ -1,0 +1,49 @@
+pdf_path: ./data/test_arch_drawing.pdf
+store_dir: ./index
+
+chunk:
+  max_chars: 800
+  overlap: 120
+
+retrieval:
+  faiss_k: 100
+  bm25_k: 200
+  rrf_k: 60
+
+answering:
+  max_context_chars: 4000
+  min_support_docs: 1
+  min_confidence: 0.5
+  require_domain: true
+  domain_terms:
+    - sheet
+    - scale
+    - title
+    - window
+    - door
+    - schedule
+    - legend
+    - revision
+    - floor
+    - plan
+    - elevation
+    - ceiling
+    - room
+    - bedroom
+    - sprinkler
+    - fire
+    - NFPA
+    - energy
+    - code
+    - electrical 
+    - living
+    - A0.0
+    - A1.0
+    - A2.0
+    - tempered
+    - glazing
+    - glass
+    - safety
+    - elevation
+    - FFE
+    - finish

@@ -1,0 +1,28 @@
+# Core Dependencies
+numpy>=1.24.0
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.0
+rank-bm25>=0.2.2
+
+# PDF Processing
+pymupdf>=1.23.0
+pytesseract>=0.3.10
+pillow>=10.0.0
+
+# Configuration
+pyyaml>=6.0
+
+# Optional: API Development (uncomment if deploying as API)
+# fastapi>=0.104.0
+# uvicorn>=0.24.0
+# python-multipart>=0.0.6
+
+# Optional: Caching (uncomment if using Redis)
+# redis>=5.0.0
+
+# Optional: Async Tasks (uncomment if using Celery)
+# celery>=5.3.0
+
+# Optional: Monitoring (uncomment for production)
+# prometheus-client>=0.19.0
+# structlog>=23.2.0
