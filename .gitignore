@@ -35,10 +35,14 @@ ENV/
 *~
 .DS_Store
 
+
 # Project Specific
 *.pdf
 data/*.pdf
-index/
+!data/
+!data/**
+!index/
+!index/**
 *.pkl
 *.index
 *.jsonl

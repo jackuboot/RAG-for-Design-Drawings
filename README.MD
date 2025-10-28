@@ -1,3 +1,4 @@
+# 📄 [English README](./README.en-US.md) | [中文说明](./README.zh-CN.md)
 # RAG System for Architectural Drawing Question Answering
 
 A Retrieval-Augmented Generation (RAG) system that answers natural language questions about architectural/construction drawing sets.
@@ -45,19 +46,58 @@ sudo apt-get install tesseract-ocr
 # Download from: https://github.com/UB-Mannheim/tesseract/wiki
 ```
 
-### Setup
 
+### Setup & CLI Usage
+
+#### 1. 放置你的 PDF 文件
+将你的 PDF 文件放到 `data/` 目录下，并在 `config.yaml` 中设置正确路径，例如：
+
+```yaml
+pdf_path: "./data/your_drawing.pdf"
+```
+
+#### 2. 依次执行以下 CLI 命令
+
+**（1）数据预处理**
 ```bash
-# 1. Place your PDF in the project directory
-cp ./data/tech_arch_drawing.pdf ./drawing.pdf
+python app.py ingest
+```
+> 解析 PDF 并生成数据块（chunks.jsonl）。
 
-# 2. Update config.yaml with your PDF path
-# Edit config.yaml and set:
-#   pdf_path: "./drawing.pdf"
+**（2）构建索引**
+```bash
+python app.py index
+```
+> 基于数据块构建 FAISS 语义索引和 BM25 关键词索引。
 
-# 3. Build the index (one-time setup)
-# Note: Indexing script not included in this prototype
-# Use pre-built index in ./index/ directory
+**（3）问答示例**
+```bash
+python app.py ask "What is the project address?"
+python app.py ask "Who is the architect?"
+python app.py ask "What is the lot area?"
+```
+> 支持自然语言提问，返回答案、置信度和引用。
+
+**（4）批量演示（可选）**
+```bash
+python app.py demo
+```
+> 批量演示内置问题。
+
+#### 典型输出格式
+```json
+{
+   "answer": "PROJECTADDRESS: 23KERLEYCOURT",
+   "confidence": 0.85,
+   "citations": [
+      {
+         "sheet_id": "S1",
+         "page": 1,
+         "section": "title block",
+         "bbox": "..."
+      }
+   ]
+}
 ```
 
 ### Usage
